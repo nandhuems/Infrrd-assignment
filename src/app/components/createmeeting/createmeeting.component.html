@@ -1,0 +1,49 @@
+<div class="card-container">
+  <div class="card card-small">
+    <ng-container *ngFor="let meeting of meetingDetails; let roomIndex = index">
+      <div class="flex-row" [ngClass]="{'margin-bottom': meeting.contentCollapsed}">
+        <div class="colum-equal">
+          <div class="list-contant">
+            <h2>
+              {{meeting.name}}
+              <span [ngStyle]="{'color': meeting.status === 'Booked' ? 'red': meeting.status === 'Available' ? 'green' : 'orange'}">
+                {{meeting.status}}
+              </span>
+            </h2>
+            <p (click)="meeting.contentCollapsed = !meeting.contentCollapsed">View All Meetings</p>
+          </div>
+          <div class="Book-btn" (click)="bookMeating(meeting)">
+              <span>Book</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row tableDisp" *ngIf="meeting.contentCollapsed">
+        <div class="colum-equal">
+          <table *ngIf="meeting.bookings.length > 0">
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>User</th>
+              <th>Agenda</th>
+              <th>Action</th>
+            </tr>
+            <tr *ngFor="let booking of meeting.bookings; let i = index">
+              <td>{{booking.date}}</td>
+              <td>{{booking.time.from}} to {{booking.time.to}}</td>
+              <td>{{booking.userName}}</td>
+              <td>{{booking.agenda}}</td>
+              <td>
+                <span class="deleteTxt" (click)="deleteBooking(roomIndex, i)">Delete</span>
+              </td>
+            </tr>
+          </table>
+          <div *ngIf="meeting.bookings.length == 0" style="padding: 1rem;">
+            <span class="error-msg" >
+              There no bookings found yet
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

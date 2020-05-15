@@ -1,0 +1,21 @@
+<div class="card-container">
+    <div class="card card-small searcboxStyle">
+        <h2>Search Booking Details</h2>
+        <div class="form-Details">
+            <label>Date<sup class="error-msg">*</sup></label>
+            <input type="date" class="date-input" [(ngModel)]="bookingRequest.date">
+        </div>
+        <div class="form-Details">
+            <div class="time-input">
+                <label>Time<sup class="error-msg">*</sup></label>
+                <input type="time" [(ngModel)]="bookingRequest.time.from">
+                <span class="toText">To</span>
+                <input type="time" [(ngModel)]="bookingRequest.time.to">
+            </div>
+        </div>
+        
+        <div class="search-box-footer form-Details">
+            <button type="button" class="search-btn" (click)="searchRooms()">Search</button>
+        </div>
+    </div>
+</div>

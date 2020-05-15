@@ -1,0 +1,32 @@
+.searcboxStyle{
+    background: #39A77A;
+    color: #fff;
+    .form-Details {
+        display: inline-block;
+        padding-right: 2rem;
+        label {
+            display: block;
+            padding: 10px 0px;
+        }
+        .date-input{
+            width: 300px;
+            height: 30px;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+        .time-input{
+            input {
+                padding: 5px 10px;
+                // width: 200px;
+            }
+            .toText {
+                padding: 0px 10px;
+            }
+        }
+    }
+    .search-box-footer{
+        margin-top: 2rem;
+        text-align: right;
+        position: relative;
+    }
+}
